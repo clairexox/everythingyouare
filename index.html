@@ -221,9 +221,6 @@
     </style>
 </head>
 <body class="min-h-screen p-4">
-    <audio id="backgroundMusic" autoplay loop hidden>
-  <source src="mp3/The Marías - No One Noticed (Audio).mp3" type="audio/mpeg">
-</audio>
     <!-- Floating Doodles -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div class="doodle-heart absolute top-10 left-10 text-3xl" style="color: #fa8072;">💕</div>
@@ -262,15 +259,42 @@
                     <p>can we all thank canva for helping</p>
                     <p>because i gave up halfway (i only made hello world)</p>
                 </div>
-                
                 <!-- Another image placeholder -->
-                <div class="image-placeholder mb-6 mx-auto max-w-xs">
-                    <div class="text-center">
-                        <p>thy bun</p>
-                        <img src="img/bottom_landing.png" class="w-28 h-auto object-cover rounded-lg">
-                    </div>
-                </div>
-                
+<div class="image-placeholder mb-6 mx-auto max-w-xs text-center">
+  thy bun<br>
+  plays music
+
+  <!-- Cute bun button -->
+  <img 
+    id="bunButton" 
+    src="img/bottom_landing.png" 
+    class="w-28 h-auto object-contain cursor-pointer transition-transform duration-200 hover:scale-110"
+    alt="bun button"
+  />
+
+  <!-- Hidden audio -->
+  <audio id="backgroundMusic" loop>
+    <source src="mp3/The Marías - No One Noticed (Audio).mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+  const bun = document.getElementById("bunButton");
+  const music = document.getElementById("backgroundMusic");
+  let isPlaying = false;
+
+  bun.addEventListener("click", () => {
+    if (isPlaying) {
+      music.pause();
+      isPlaying = false;
+      bun.style.opacity = "0.7"; // visual cue when paused
+    } else {
+      music.play();
+      isPlaying = true;
+      bun.style.opacity = "1"; // back to normal when playing
+    }
+  });
+</script>  
                 <div class="sticky-note p-4 mx-auto max-w-sm mb-6">
                     <p class="handwritten text-gray-800 text-lg">
                         you should click the button and maybe<br>
