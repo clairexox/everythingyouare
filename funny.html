@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youre so sexy</title>
+  <style>
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-5px); }
+      40%, 80% { transform: translateX(5px); }
+      30%  { transform: translate(0, 5px); }
+    }
+
+    .cat-bounce {
+      animation: shake 0.5s infinite;
+    }
+  </style>
+</head>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Caveat:wght@400;600;700&display=swap');
+        
+        body { 
+            font-family: 'Kalam', cursive;
+            background: #fefefe;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(250, 128, 114, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 182, 193, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(230, 230, 250, 0.3) 0%, transparent 50%);
+        }
+        
+        .handwritten {
+            font-family: 'Caveat', cursive;
+            transform: rotate(-1deg);
+        }
+        
+        .handwritten-alt {
+            font-family: 'Kalam', cursive;
+            transform: rotate(0.5deg);
+        }
+        
+        .paper {
+            background: #fff;
+            background-image: 
+                linear-gradient(90deg, #fa8072 0px, transparent 1px),
+                linear-gradient(#f0f0f0 1px, transparent 1px);
+            background-size: 20px 20px;
+            box-shadow: 
+                0 0 0 1px rgba(250, 128, 114, 0.1),
+                3px 3px 10px rgba(0,0,0,0.1),
+                -2px -2px 8px rgba(255,255,255,0.8);
+            border: 2px solid #fa8072;
+            border-radius: 15px;
+            transform: rotate(-0.5deg);
+        }
+        
+        .doodle-heart {
+            animation: wiggle 2s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 4px rgba(250, 128, 114, 0.3));
+        }
+        
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg) scale(1); }
+            25% { transform: rotate(2deg) scale(1.05); }
+            50% { transform: rotate(-1deg) scale(0.95); }
+            75% { transform: rotate(1deg) scale(1.02); }
+        }
+        
+        .scribble-border {
+            border: 3px dashed #fa8072;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+        
+        .scribble-border::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid #dda0dd;
+            border-radius: 25px;
+            transform: rotate(1deg);
+            z-index: -1;
+        }
+        
+        .messy-btn {
+            background: linear-gradient(45deg, #fa8072, #dda0dd);
+            border: 3px solid #fff;
+            border-radius: 25px;
+            transform: rotate(-1deg);
+            box-shadow: 
+                3px 3px 0px #f08080,
+                6px 6px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .messy-btn:hover {
+            transform: rotate(1deg) scale(1.05);
+            box-shadow: 
+                5px 5px 0px #f08080,
+                8px 8px 15px rgba(0,0,0,0.3);
+        }
+        
+        .answer-btn {
+            background: #fff;
+            border: 2px solid #fa8072;
+            border-radius: 15px;
+            transform: rotate(-0.5deg);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .answer-btn:hover {
+            transform: rotate(0.5deg) scale(1.02);
+            background: #fff5ee;
+            border-color: #f08080;
+        }
+        
+        .answer-btn::after {
+            content: '♡';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fa8072;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .answer-btn:hover::after {
+            opacity: 1;
+        }
+        
+        .doodle-arrow {
+            color: #fa8072;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .progress-doodle {
+            background: #fff;
+            border: 2px dashed #fa8072;
+            border-radius: 20px;
+            height: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #fa8072, #dda0dd, #f0e68c);
+            height: 100%;
+            border-radius: 15px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+        
+        .progress-fill::after {
+            content: '♡ ♡ ♡';
+            position: absolute;
+            top: -2px;
+            right: 5px;
+            color: white;
+            font-size: 8px;
+        }
+        
+        .image-placeholder {
+            border: 3px dashed #fa8072;
+            border-radius: 15px;
+            background: rgba(250, 128, 114, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            transform: rotate(-1deg);
+            transition: all 0.3s ease;
+        }
+        
+        .image-placeholder:hover {
+            transform: rotate(1deg) scale(1.02);
+            background: rgba(250, 128, 114, 0.2);
+        }
+        
+        .sticky-note {
+            background: #fff8dc;
+            border: 1px solid #f5deb3;
+            border-radius: 0 0 15px 15px;
+            transform: rotate(2deg);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .sticky-note::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: #f5deb3;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .tape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid #ddd;
+            transform: rotate(45deg);
+        }
+        
+        .tape-1 { top: -10px; right: 20px; width: 30px; height: 15px; }
+        .tape-2 { bottom: -8px; left: 30px; width: 25px; height: 12px; transform: rotate(-30deg); }
+    </style>
+</head>
+<body class="min-h-screen p-4">
+    <!-- Floating Doodles -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="doodle-heart absolute top-10 left-10 text-3xl" style="color: #fa8072;">💕</div>
+        <div class="doodle-heart absolute top-20 right-20 text-2xl" style="animation-delay: 1s; color: #dda0dd;">✨</div>
+        <div class="doodle-heart absolute bottom-20 left-20 text-4xl" style="animation-delay: 2s; color: #ffb6c1;">💖</div>
+        <div class="doodle-heart absolute bottom-10 right-10 text-2xl" style="animation-delay: 0.5s; color: #e6e6fa;">🌟</div>
+        <div class="doodle-heart absolute top-1/2 left-1/4 text-xl" style="animation-delay: 1.5s; color: #ffc0cb;">♡</div>
+        <div class="doodle-heart absolute top-1/3 right-1/3 text-3xl" style="animation-delay: 2.5s; color: #f0e68c;">☆</div>
+        
+        <!-- Scribbled arrows and doodles -->
+        <div class="absolute top-1/4 left-1/2 text-2xl transform -rotate-12" style="color: #fa8072;">→</div>
+        <div class="absolute bottom-1/3 right-1/4 text-xl transform rotate-45" style="color: #dda0dd;">♪</div>
+        <div class="absolute top-2/3 left-1/3 text-lg transform -rotate-45" style="color: #e6e6fa;">♫</div>
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="paper p-8 mb-8 relative">
+            <div class="tape tape-1"></div>
+            <div class="tape tape-2"></div>
+            
+            <div class="text-center">
+                <!-- Image placeholder for cute couple photo -->
+                <div class="flex justify-center mb-6">
+                    <div class="text-center">
+                        
+                        <img src="top_landing.jpg" class="w-28 h-auto object-cover rounded-lg">
+                    </div>
+                </div>
+                
+                <h1 class="handwritten text-5xl mb-4 transform -rotate-1" style="color: #fa8072;">
+                    how down bad r u for me 
+                </h1>
+                
+                <div class="handwritten-alt text-xl text-gray-700 mb-6 transform rotate-1">
+                    <p>can we all thank canva for helping</p>
+                    <p>because i gave up halfway (i only made hello world)</p>
+                </div>
+                
+                <!-- Another image placeholder -->
+                <div class="image-placeholder mb-6 mx-auto max-w-xs">
+                    <div class="text-center">
+                        <p>thy bun</p>
+                        <img src="bottom_landing.png" class="w-28 h-auto object-cover rounded-lg">
+                    </div>
+                </div>
+                
+                <div class="sticky-note p-4 mx-auto max-w-sm mb-6">
+                    <p class="handwritten text-gray-800 text-lg">
+                        you should click the button and maybe<br>
+                        look at it yourself because i dont wanna
+                        spoil it sooooooo
+                    </p>
+                </div>
+                
+                <button onclick="startTest()" class="messy-btn text-white px-8 py-4 text-2xl font-bold handwritten">
+                    pray before entering (or not)
+                </button>
+                
+                <div class="doodle-arrow text-3xl mt-4">↑</div>
+                <p class="handwritten text-lg" style="color: #fa8072;">this is a button</p>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="hidden">
+            <div class="paper p-8 mb-8 relative">
+                <div class="tape tape-1"></div>
+                
+                <div class="flex justify-between items-center mb-6 relative">
+                    <h2 class="handwritten text-3xl text-pink-600 transform -rotate-1">
+                        question <span id="question-number">1</span> of 5 !!
+                    </h2>
+                    <!-- bouncing cat -->
+                    <img src="cat_header.png" alt="cat mascot"
+                    class="cat-bounce absolute right-0 top-0 w-16 h-16" />
+                </div>
+                
+                <div class="progress-doodle mb-8">
+                    <div id="progress-bar" class="progress-fill" style="width: 20%"></div>
+                </div>
+
+                <!-- Image placeholder for question -->
+                <div class="flex justify-center mb-6">
+                    <div class="text-center">
+                        <p>buy me</p>
+                        <img src="catsthree.png" class="w-28 h-auto object-cover rounded-lg">
+                        <p>cooki</p>
+                    </div>
+                </div>
+
+                <div id="question-container" class="mb-8">
+                    <h3 id="question-text" class="handwritten text-2xl text-gray-800 mb-6 transform rotate-1"></h3>
+                    <div id="answers-container" class="space-y-4"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="hidden">
+            <div class="scribble-border p-8 mb-8 relative">
+                <div class="tape tape-1"></div>
+                <div class="tape tape-2"></div>
+                
+                <div id="result-content" class="text-center"></div>
+                
+                <!-- Image placeholder for result -->
+                <div class="flex justify-center mb-6">
+                    <div class="text-center">
+                        <p>???</p>
+                        <img src="whiplash.png" class="w-28 h-auto object-cover rounded-lg">
+                        <p>wat</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Screen -->
+        <div id="final-screen" class="hidden">
+            <div class="paper p-8 mb-8 relative">
+                <div class="tape tape-1"></div>
+                <div class="tape tape-2"></div>
+                <div class="flex justify-center mb-6">
+                    <img src="flow.png" class="w-28 h-auto object-cover rounded-lg"></div>
+                    <div class="text-center">
+                    <h2 class="handwritten text-4xl text-pink-600 mb-4 transform -rotate-1">
+                        seriously, i will love every version of you.
+                    </h2>
+                    
+                    <!-- Main couple image placeholder -->
+                    <div class="flex justify-center mb-6">
+                        <div class="text-center">
+                            <img src="yaelah.png" class="w-28 h-auto object-cover rounded-lg">                     </div>
+                    </div>
+                    
+                    <div class="handwritten-alt text-xl text-gray-700 mb-8 transform rotate-1">
+                        i love finding new things to surprise you with everyday.
+                    </div>
+                    
+                    <div class="sticky-note p-6 mx-auto max-w-lg mb-8">
+                        <p class="handwritten text-gray-800 text-lg">
+                            i hope you always know, your love has been filling me with<br>
+                            warmth everyday. thank you for always being my lover<br>
+                            since day 1, sayang. you made me listen to love songs again.
+                        </p>
+                    </div>
+
+                    <!-- Small doodle placeholder -->
+                    <div class="image-placeholder mb-6 mx-auto max-w-xs">
+                        <div class="text-center">
+                            <div class="text-3xl mb-2">and by this, im grateful to say i love you.</div>
+                            <p class="handwritten text-pink-600">when you think nobody gets you, ill always be here to try and pick you up.</p>
+                            <p class="text-xs text-gray-500 mt-1">i love celebrating my love with you.</p>
+                        </div>
+                    </div>
+
+                    <div class="handwritten text-2xl text-salmon-500 mt-6 transform rotate-1">
+                        i wouldnt take anybody but you, so please be mine?<br>
+                        with love, nadia 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "i ask for a date night. what do you contribute",
+                answers: [
+                    { text: "netflix & cuddles at home (lazy ass)", points: 10 },
+                    { text: "fancy dinner (so expensive omg)", points: 5 },
+                    { text: "night rides (dont crash this time)", points: 10 },
+                    { text: "i fucking hate dates (well i fucking hate u)", points: 3 }
+                ]
+            },
+            {
+                question: "do you fw me if im sad",
+                answers: [
+                    { text: "yes babygirl ill give u matcha n kisses n hugs", points: 10 },
+                    { text: "yes darling let me spoil ye", points: 5 },
+                    { text: "babygirl cuddl and tell me abt it (tissues on u, food on u", points: 10 },
+                    { text: "be fucking sad alone fuckass (why r u taking this quiz??)", points: 3 }
+                ]
+            },
+            {
+                question: "wat is importan in relationsip",
+                answers: [
+                    { text: "trust, loyalty, honesty, n our happiness", points: 10 },
+                    { text: "runnin away and get married", points: 5 },
+                    { text: "spendin time like im gonn die", points: 10 },
+                    { text: "i fucking hate love (again tf is wrong w u?????)", points: 3 }
+                ]
+            },
+            {
+                question: "im mad. wyd if im mad or sad or just not happy",
+                answers: [
+                    { text: "talk it out like adults bc we aint babies altho yer my baby (aww so sweet baby)", points: 10 },
+                    { text: "talk again because this is the right answer", points: 10 },
+                    { text: "leave me alone (i will fucking hate you)", points: 5 },
+                    { text: "its not my fault (ok i will bomb ur fucking house)", points: 3 }
+                ]
+            },
+            {
+                question: "wat makes me go oh my GODDDDDDDDD DSBJHBJBDHDHDHD (happy)",
+                answers: [
+                    { text: "yer amazing absolutely jawdropping pics that u always serve everyday please give me pic -nadia", points: 10 },
+                    { text: "matcha (sorry i broke the fourth wall its 12 am and im not done yet)", points: 10 },
+                    { text: "accounting. (im pissing my pants now)", points: 5 },
+                    { text: "idk (im fucking ending you)", points: 3 }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let totalScore = 0;
+
+        function startTest() {
+            document.getElementById('welcome-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = questions[currentQuestion];
+            document.getElementById('question-number').textContent = currentQuestion + 1;
+            document.getElementById('question-text').textContent = question.question;
+            
+            const progressPercent = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progress-bar').style.width = progressPercent + '%';
+
+            const answersContainer = document.getElementById('answers-container');
+            answersContainer.innerHTML = '';
+
+            question.answers.forEach((answer, index) => {
+                const button = document.createElement('button');
+                button.className = 'answer-btn w-full p-4 text-left handwritten-alt text-lg';
+                button.innerHTML = answer.text;
+                button.onclick = () => selectAnswer(answer.points);
+                answersContainer.appendChild(button);
+            });
+        }
+
+        function selectAnswer(points) {
+            totalScore += points;
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                setTimeout(() => {
+                    showQuestion();
+                }, 300);
+            } else {
+                setTimeout(() => {
+                    showResults();
+                }, 300);
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('results-screen').classList.remove('hidden');
+
+            let resultContent = '';
+            
+            if (totalScore < 35) {
+                resultContent = `
+                    <div class="text-5xl mb-4 doodle-heart">🤔</div>
+                    <h2 class="handwritten text-4xl text-pink-600 mb-4 transform -rotate-1">umm... really??</h2>
+                    <div class="handwritten-alt text-xl text-gray-700 mb-6 transform rotate-1">
+                        <p>hey you fucking bitch ass of a liar oi</p>
+                        <p>i KNOW you like me.... fan behavior.</p>
+                    </div>
+                    <div class="sticky-note p-6 mx-auto max-w-lg mb-6">
+                        <p class="handwritten text-gray-800 text-lg">"did u rlly think i would fall for that type shit" -nadia</p>
+                    </div>
+                `;
+            } else {
+                resultContent = `
+                    <div class="text-5xl mb-4 doodle-heart">😍</div>
+                    <h2 class="handwritten text-4xl text-pink-600 mb-4 transform -rotate-1">OUUU MAMACITA YOU LIKE ME</h2>
+                    <div class="handwritten-alt text-xl text-gray-700 mb-6 transform rotate-1">
+                        <p>OK you r sometimes VERY questionable...</p>
+                        <p>BUT YOURE STILL MY BBY REGARDLESS</p>
+                    </div>
+                    <div class="sticky-note p-6 mx-auto max-w-lg mb-6">
+                        <p class="handwritten text-gray-800 text-lg">"i hope good things come your way, my baby"</p>
+                    </div>
+                `;
+            }
+
+            resultContent += `
+                <button onclick="showFinalResult()" class="messy-btn text-white px-8 py-4 text-2xl font-bold handwritten">
+                    offer ur soul
+                </button>
+            `;
+
+            document.getElementById('result-content').innerHTML = resultContent;
+        }
+
+        function showFinalResult() {
+            document.getElementById('results-screen').classList.add('hidden');
+            document.getElementById('final-screen').classList.remove('hidden');
+        }
+
+        function goToBirthdayWishes() {
+            window.open('birthday-wishes.html', '_blank');
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97752f9e3610df97',t:'MTc1NjU2NjMyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
